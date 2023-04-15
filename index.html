@@ -14,18 +14,21 @@
 </head>
 
 <body>
-  <header>
-
-  </header>
   <main>
 
     <div class="container">
+      <h1>Labrinth Game</h1>
 
-      <div class="rules">
-        <h1>Help!</h1>
-        <div class="show">
+      <div>
+        <input type="checkbox" id="modal">
+
+        <label for="modal" class="button">View rules</label>
+
+        <label for="modal" class="modal-background"></label>
+
+        <div class="modal close">
+          <label for="modal">&times;</label>
           <p>Rules are simple. walk step by step! GREEN = okey RED = Wrong way</p>
-          <p></p>
           <p>If youre going the wrong way please gp back to the beginning</p>
           <p>for full experience dont cheat</p>
         </div>
@@ -96,11 +99,6 @@
         <div class="step w"></div>
       </div>
 
-      <div class="lives">
-        <h2>Lives</h2>
-        <p>0/3</p>
-
-      </div>
     </div>
 
   </main>

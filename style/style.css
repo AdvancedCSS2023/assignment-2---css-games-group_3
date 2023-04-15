@@ -1,19 +1,23 @@
 :root {
-  --main-bg-color: #fff, #B3D0F5, #597CA8;
-  --bg-color-rules: lightgrey;
-  --bg-color-steps: #f5deb3;
+  --main-bg-color: #fff, #5CC3EB, #128AAC, #126896;
+  --bg-color-rules: #D3D3D3;
+  --bg-color-island: #FFE2D0;
+  --bg-color-steps: #FFE2D0;
 
-  --header-color: ;
-  --text-color: ;
-  --text-steps: ;
+  --island-border: #EBC8A1;
+  --island-shadow: #BEC7B7;
 
-  --step-r: #DEC192;
-  --step-w: #29292c;
+  --header-color: #29292c;
+
+  --text-color: #29292c;
+  --text-steps: #29292c;
+
+  --step-r: #EBC8A1;
+  --step-w: #000000;
 
   --black: #000;
   --white: #fff;
 }
-
 
 * {
   padding: 0;
@@ -28,16 +32,15 @@ body {
   background: radial-gradient(var(--main-bg-color))
 }
 
-h1, h2 {
+h1 {
   color: var(--header-color);
   font-size: 30px;
 }
 
 p {
-padding: 5px;
+  padding: 5px;
   letter-spacing: 0.3px;
   font-size: 15px;
-  
 }
 
 .container {
@@ -46,7 +49,7 @@ padding: 5px;
   flex-direction: column;
   height: 100vh;
   width: 100%;
-  gap: 55px;
+  gap: 40px;
 }
 
 .grid {
@@ -55,21 +58,30 @@ padding: 5px;
   grid-template-rows: repeat(7, 1fr);
   grid-column-gap: 3px;
   grid-row-gap: 3px;
-  height: 500px;
-  width: 500px;
-  border: solid 2px var(--white);
+  height: 800px;
+  width: 800px;
+  border: solid 10px var(--island-border);
+  box-shadow: 0 20px 50px 30px var(--island-shadow);
+  border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
+  padding: 130px;
+  background-color: var(--bg-color-island);
 }
 
 .step {
   text-align: center;
-  padding-top: 30px;
-  background: var(--bg-color-steps);
-  color: var(--text-steps);
+  padding-top: 20px;
+  color: var(--black);
   font-size: 20px;
   text-transform: uppercase;
   cursor: pointer;
   transition: 1s;
   transition-delay: 0.1s;
+  border: solid 1px var(--island-border);
+}
+
+.step:nth-child(1) {
+  background: var(--step-r);
+  font-size: 15px;
 }
 
 .r:hover {
@@ -80,32 +92,99 @@ padding: 5px;
   background: var(--step-w);
 }
 
+.exit {
+  color: var(--bg-color-island);
+}
+
 .exit:hover {
-  background-color: var(--black);
+  background-color: var(--step-r);
 }
 
-.step:nth-child(1) {
-  background: var(--step-r);
-  font-size: 15px;
-}
 
-.rules {
-  margin-top: 60px;
-  border-left: solid 1px var(--black);
-  border-bottom: solid 1px var(--black);
-  font-size: 10px;
-  line-height: 15px;
-  border-radius: 62% 38% 60% 40% / 56% 66% 34% 44% ;
-  background-color: var(--bg-color-rules);
-  padding: 50px;
-}
+/*Modal*/
 
-.show {
+/*Removes the checkbox*/
+input[type="checkbox"],
+#modal {
   display: none;
 }
 
-h1:hover + .show {
+
+/*sets the display property to block when the checkbox is checked/clicked*/
+input[type="checkbox"]:checked~.modal,
+input[type="checkbox"]:checked~.modal-background {
   display: block;
 }
 
-endre farge på exit tile som matcher bakground
+
+/*gives a semi-transparent background and is positioned fixed to cover the entire viewport*/
+.modal-background {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 99;
+}
+
+/*takes up the entire viewport. It has a z-index higher than the modal background to ensure that it appears on top*/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: none;
+  width: 600px;
+  height: 600px;
+  padding: 80px;
+  border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
+  background-color: var(--bg-color-rules);
+  box-sizing: border-box;
+  z-index: 100;
+
+}
+
+.modal>p {
+  padding: 15px;
+  margin: 0;
+}
+
+.close {
+  background-color: yellow;
+  height: fit-content;
+}
+
+/*positions the close button to the right*/
+.close label {
+  float: right;
+  line-height: 50px;
+  padding: 0 15px 0 15px;
+  cursor: pointer;
+  color: var(--black);
+  font-weight: bold;
+}
+
+.close label:hover {
+  opacity: 0.5;
+}
+
+/* styling for the rules button */
+.button {
+  display: inline-block;
+  padding: 40px;
+
+  background-color: var(--bg-color-rules);
+  border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
+
+  color: var(--black);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
