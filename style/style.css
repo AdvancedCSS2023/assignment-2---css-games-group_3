@@ -1,22 +1,15 @@
 :root {
   --main-bg-color: #fff, #5CC3EB, #128AAC, #126896;
   --bg-color-rules: #D3D3D3;
-  --bg-color-island: #FFE2D0;
-  --bg-color-steps: #FFE2D0;
+  --bg-color-island-steps: #FFE2D0;
 
   --island-border: #EBC8A1;
   --island-shadow: #BEC7B7;
 
   --header-color: #29292c;
 
-  --text-color: #29292c;
-  --text-steps: #29292c;
-
   --step-r: #EBC8A1;
   --step-w: #000000;
-
-  --black: #000;
-  --white: #fff;
 }
 
 * {
@@ -26,7 +19,6 @@
   font-family: Arial, Helvetica, sans-serif;
   border: solid 1px red;
 }
-
 
 body {
   background: radial-gradient(var(--main-bg-color))
@@ -64,7 +56,7 @@ p {
   box-shadow: 0 20px 50px 30px var(--island-shadow);
   border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
   padding: 130px;
-  background-color: var(--bg-color-island);
+  background-color: var(--bg-color-island-steps);
 }
 
 .step {
@@ -93,7 +85,7 @@ p {
 }
 
 .exit {
-  color: var(--bg-color-island);
+  color: var(--bg-color-island-steps);
 }
 
 .exit:hover {
@@ -143,18 +135,16 @@ input[type="checkbox"]:checked~.modal-background {
   padding: 80px;
   border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
   background-color: var(--bg-color-rules);
-  box-sizing: border-box;
   z-index: 100;
-
 }
 
 .modal>p {
-  padding: 15px;
-  margin: 0;
+  padding: 12px;
+  font-size: 17px;
 }
 
 .close {
-  background-color: yellow;
+  background-color: var(--bg-color-island-steps);
   height: fit-content;
 }
 
@@ -164,8 +154,8 @@ input[type="checkbox"]:checked~.modal-background {
   line-height: 50px;
   padding: 0 15px 0 15px;
   cursor: pointer;
-  color: var(--black);
   font-weight: bold;
+  font-size: 30px;
 }
 
 .close label:hover {
@@ -180,11 +170,19 @@ input[type="checkbox"]:checked~.modal-background {
   background-color: var(--bg-color-rules);
   border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
 
-  color: var(--black);
-  font-size: 12px;
+  font-size: 15px;
   cursor: pointer;
 }
 
+/* styling when hovering rules button */
 .button:hover {
   opacity: 0.8;
+  text-decoration: underline overline;
 }
+
+
+
+/*Decorations and animations*/
+
+
+
