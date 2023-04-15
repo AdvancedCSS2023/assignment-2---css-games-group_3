@@ -12,13 +12,21 @@
   --step-w: #000000;
 }
 
+@font-face {
+  font-family: never;
+  src: url(../assets/Kiddy\ Play.ttf);
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: never, Helvetica, sans-serif;
   border: solid 1px red;
+  letter-spacing: 1px;
 }
+
+
 
 body {
   background: radial-gradient(var(--main-bg-color))
@@ -26,7 +34,7 @@ body {
 
 h1 {
   color: var(--header-color);
-  font-size: 30px;
+  font-size: 50px;
 }
 
 p {
