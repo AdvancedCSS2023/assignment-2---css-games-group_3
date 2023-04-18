@@ -1,5 +1,6 @@
+/* Define variables for colors */
 :root {
-  --main-bg-color: #fff, #5CC3EB, #128AAC, #126896;
+  --background-color: #fff, #5CC3EB, #128AAC, #126896;
   --bg-color-rules: #D3D3D3;
   --bg-color-island-steps: #FFE2D0;
 
@@ -9,30 +10,30 @@
   --step-r: #EBC8A1;
   --step-w: #4D4D4D;
 
-  --header-color: #29292c;
+  --text-color: #29292c;
   --white: #ffffff;
   --black: #000000;
 }
 
+/* General rules */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: solid 1px red;
+}
+
 @font-face {
-  font-family: never;
+  font-family: kiddy;
   src: url(../assets/Kiddy\ Play.ttf);
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: never, Helvetica, sans-serif;
-
-  letter-spacing: 1px;
-  /*border: solid 1px red;*/
-}
-
 body {
-  background: radial-gradient(var(--main-bg-color));
+  background: radial-gradient(var(--background-color));
+  font-family: kiddy, Helvetica, sans-serif;
+  letter-spacing: 1px;
   padding: 1%;
-  background-attachment: fixed;
+  overflow: hidden;
 }
 
 h1 {
@@ -42,7 +43,7 @@ h1 {
 h1,
 h2,
 h1+p {
-  color: var(--header-color);
+  color: var(--text-color);
   text-align: center;
 }
 
@@ -93,6 +94,8 @@ p {
   cursor: pointer;
   transition: 1s;
   border: solid 1px var(--island-border);
+
+  z-index: 50;
 }
 
 .step:nth-child(1) {
@@ -125,7 +128,10 @@ p {
 
 /*MODAL*/
 .rules {
+  position: absolute;
   grid-area: rule;
+  bottom: 30px;
+  right: 30px;
 }
 
 /*Removes the checkbox*/
@@ -213,7 +219,6 @@ input[type="checkbox"]:checked~.modal-background {
   opacity: 0.8;
   text-decoration: underline overline;
 }
-
 
 /* ###################################################### */
 /*                Decorations and animations              */
@@ -422,15 +427,15 @@ Opacity and scale are also animated */
 /*PALM TREE*/
 .palm-tree {
   position: relative;
-  top: -1000px;
+  top: -870px;
   left: 60px;
   transform: scale(0.4);
 
-  z-index: 2;
+  z-index: 1;
 }
 
 .palm-tree.two {
-  top: -1070px;
+  top: -930px;
   left: -100px;
   transform: scale(0.3) rotate(10deg);
 }
@@ -548,6 +553,8 @@ Opacity and scale are also animated */
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+
+/*Screens under 700px*/
 @media only screen and (max-width: 700px) {
 
   h1,
@@ -559,6 +566,17 @@ Opacity and scale are also animated */
   .grid {
     height: 350px;
     width: 350px;
+  }
+
+  .container {
+    grid-template-areas:
+      "."
+      "."
+      "rule";
+  }
+
+  .rules {
+    position: static;
   }
 
   .step:nth-child(1) {
