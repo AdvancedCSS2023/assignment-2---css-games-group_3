@@ -6,10 +6,12 @@
   --island-border: #EBC8A1;
   --island-shadow: #BEC7B7;
 
-  --header-color: #29292c;
-
   --step-r: #EBC8A1;
   --step-w: #4D4D4D;
+
+  --header-color: #29292c;
+  --white: #ffffff;
+  --black: #000000;
 }
 
 @font-face {
@@ -24,21 +26,23 @@
   font-family: never, Helvetica, sans-serif;
 
   letter-spacing: 1px;
-  border: solid 1px red;
+  /*border: solid 1px red;*/
 }
 
 body {
   background: radial-gradient(var(--main-bg-color));
   padding: 1%;
-
+  background-attachment: fixed;
 }
 
 h1 {
-  color: var(--header-color);
   font-size: 3rem;
 }
 
-h1, h2, h1 + p {
+h1,
+h2,
+h1+p {
+  color: var(--header-color);
   text-align: center;
 }
 
@@ -89,7 +93,6 @@ p {
   cursor: pointer;
   transition: 1s;
   border: solid 1px var(--island-border);
-
 }
 
 .step:nth-child(1) {
@@ -103,7 +106,6 @@ p {
 
 .w:hover {
   background: var(--step-w);
-
 }
 
 .w:hover::before {
@@ -117,12 +119,14 @@ p {
 
 .exit:hover {
   background-color: var(--step-r);
+  color: black;
 }
 
 
 /*MODAL*/
 .rules {
   grid-area: rule;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 /*Removes the checkbox*/
@@ -149,6 +153,7 @@ input[type="checkbox"]:checked~.modal-background {
   left: 0;
   display: none;
   z-index: 3;
+  
 }
 
 /*takes up the entire viewport. It has a z-index higher than the modal background to ensure that it appears on top*/
@@ -249,10 +254,16 @@ input[type="checkbox"]:checked~.modal-background {
 }
 
 /*TREASURE CHEST*/
-/*@keyframes rotate { 
-  0%   {transform: scale(7)  rotate(0deg) translateX(-20%) translateY(-40%);}
+/*@keyframes rotate {
+  0% {
+    transform: scale(7) rotate(0deg) translateX(-20%) translateY(-40%);
+    opacity: 1;
+  }
 
-  100% {transform: scale(0.45) rotate(360deg);}
+  100% {
+    transform: scale(0.45) rotate(360deg);
+    opacity: 0.1;
+  }
 }*/
 
 .treasure-chest {
@@ -266,13 +277,20 @@ input[type="checkbox"]:checked~.modal-background {
 
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-top: -20px;
-right: -32px;
+  top: -20px;
+  right: -32px;
 
   transform: scale(0.40);
-  animation: rotate 3s alternate ease-in-out;
+
+  animation: rotate 3s ease-in-out;
+  /*Let the div element retain the style values from the last keyframe when the animation ends*/
+  opacity: 0;
 
   z-index: 2;
+}
+
+.exit:hover>.treasure-chest {
+  opacity: 1;
 }
 
 .treasure-chest::before {
@@ -311,8 +329,8 @@ right: -32px;
   border-radius: 50%;
 
   /*position*/
-  left: 43px;
-  top: 35px;
+  left: 42px;
+  top: 37px;
 
   z-index: 2;
 }
@@ -326,34 +344,35 @@ right: -32px;
   width: 4px;
 
   /*position*/
-  left: 3px;
-  top: 9px;
+  left: 2px;
+  top: 7px;
 }
 
 /*SHARK*/
-/*.shark {
- --shark: #AEB9BF;
+.shark {
+  --shark: #AEB9BF;
   --shark-shadow: #73848C;
 
   position: absolute;
   clip-path: polygon(23% 28%, 0% 100%, 100% 100%);
   border-radius: 9px;
 
-  background: var(--shark);
+  background: linear-gradient(354deg, rgba(174,185,191,1) 0%, rgba(115,132,140,1) 35%, rgba(114,125,129,1) 100%);
+
   height: 40px;
   width: 50px;
 
   top: 110px;
   left: 60px;
 
-  border: solid 2px var(--shark-shadow);
-  filter: drop-shadow(1px 1px 1px var(--shark-shadow));
+  border: solid 2px #95A4AD;
+  filter: drop-shadow(1px 1px 1px var(--white));
 
   z-index: -1;
 
   /* name | duration | timing-function | iteration-count*/
   animation: swim 40s linear infinite;
-}*/
+}
 
 /* Starting on the left side and moves to the right. It changes its vertical position with transform: translateY().
 Opacity and scale are also animated */
@@ -400,3 +419,130 @@ Opacity and scale are also animated */
 
 
 /*PALM TREE*/
+.palm-tree {
+  position: relative;
+  top: -1000px;
+  left: 60px;
+  transform: scale(0.4);
+
+  z-index: 2;
+}
+
+.palm-tree.two {
+  top: -1070px;
+  left: -100px;
+  transform: scale(0.3) rotate(10deg);
+}
+
+.leaf {
+  --leaf-light: #76B711;
+  --leaf-dark: #39AB10;
+  position: relative;
+  height: 100px;
+  width: 130px;
+  background: var(--leaf-dark);
+
+  border-radius: 5% 100% 0% 100% / 0% 100% 0% 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.leaf:nth-child(2) {
+  transform: rotate(115deg);
+  left: 105px;
+  top: -115px;
+  background: var(--leaf-light);
+
+}
+
+.leaf:nth-child(3) {
+  left: 110px;
+  transform: rotate(-20deg);
+  top: -140px;
+  background: var(--leaf-dark);
+
+  height: 95px;
+  width: 122px;
+}
+
+.leaf:nth-child(4) {
+  transform: rotate(290deg);
+  top: -220px;
+  left: 7px;
+  background: var(--leaf-light);
+
+  height: 90px;
+  width: 110px;
+}
+
+.leaf::after {
+  content: '';
+  position: absolute;
+  border-left: 2px solid transparent;
+  border-right: 7px solid transparent;
+
+  border-bottom: 20px solid var(--bg-color-island-steps);
+  transform: rotate(65deg);
+
+  top: 20px;
+  left: 0;
+}
+
+.leaf:nth-child(3)::after {
+  transform: rotate(65deg);
+
+  top: 70px;
+  left: 50px;
+}
+
+.coconut {
+  --coconut: #5D3C02;
+  --coconut-shadow: #6A4502;
+  position: relative;
+
+  width: 30px;
+  height: 30px;
+
+  background: var(--coconut);
+  border-radius: 50%;
+  border-left: 2px solid var(--coconut-shadow);
+
+  top: -330px;
+  left: 85px;
+}
+
+.coconut:nth-child(6) {
+  top: -335px;
+  left: 92px;
+
+  width: 33px;
+  height: 32px;
+}
+
+.coconut:nth-child(7) {
+  top: -390px;
+  left: 110px;
+
+  width: 32px;
+  height: 34px;
+}
+
+.trunk {
+  --trunk-light: #A45B17;
+  --trunk-dark: #843C02;
+  position: relative;
+  top: -390px;
+  left: 107px;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 70px;
+  transform: rotate(-7deg);
+  background: repeating-radial-gradient(circle at top,
+      var(--trunk-light),
+      var(--trunk-light) 8px,
+      var(--trunk-dark) 15px,
+      var(--trunk-dark) 9px);
+  border-radius: 90% 20% / 10% 30%;
+  z-index: -2;
+
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
