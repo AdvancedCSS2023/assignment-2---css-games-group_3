@@ -9,10 +9,7 @@
   --header-color: #29292c;
 
   --step-r: #EBC8A1;
-  --step-w: red;
-
-  --shark: #AEB9BF;
-  --shark-shadow: #73848C;
+  --step-w: #4D4D4D;
 }
 
 @font-face {
@@ -27,17 +24,22 @@
   font-family: never, Helvetica, sans-serif;
 
   letter-spacing: 1px;
-
-  /*border: solid 1px red;*/
+  border: solid 1px red;
 }
 
 body {
-  background: radial-gradient(var(--main-bg-color))
+  background: radial-gradient(var(--main-bg-color));
+  padding: 1%;
+
 }
 
 h1 {
   color: var(--header-color);
-  font-size: 50px;
+  font-size: 3rem;
+}
+
+h1, h2, h1 + p {
+  text-align: center;
 }
 
 p {
@@ -47,12 +49,18 @@ p {
 }
 
 .container {
-  display: flex;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
   align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  width: 100%;
+  grid-template-areas:
+    "."
+    "."
+    "rule";
   gap: 40px;
+  height: 100%;
+  width: 100%;
 }
 
 .grid {
@@ -61,12 +69,14 @@ p {
   grid-template-rows: repeat(7, 1fr);
   grid-column-gap: 3px;
   grid-row-gap: 3px;
-  height: 800px;
-  width: 800px;
+
+  height: 700px;
+  width: 700px;
+
   border: solid 10px var(--island-border);
   box-shadow: 0 20px 50px 30px var(--island-shadow);
   border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
-  padding: 130px;
+  padding: 18%;
   background-color: var(--bg-color-island-steps);
 
   z-index: 1;
@@ -74,14 +84,12 @@ p {
 
 .step {
   text-align: center;
-  padding-top: 20px;
-  color: var(--black);
-  font-size: 20px;
+  padding-top: 15px;
   text-transform: uppercase;
   cursor: pointer;
   transition: 1s;
-  transition-delay: 0.1s;
   border: solid 1px var(--island-border);
+
 }
 
 .step:nth-child(1) {
@@ -95,9 +103,15 @@ p {
 
 .w:hover {
   background: var(--step-w);
+
+}
+
+.w:hover::before {
+  content: "✖";
 }
 
 .exit {
+  position: relative;
   color: var(--bg-color-island-steps);
 }
 
@@ -106,7 +120,10 @@ p {
 }
 
 
-/*Modal*/
+/*MODAL*/
+.rules {
+  grid-area: rule;
+}
 
 /*Removes the checkbox*/
 input[type="checkbox"],
@@ -201,18 +218,16 @@ input[type="checkbox"]:checked~.modal-background {
 /*WAVES*/
 .waves {
   position: absolute;
+  text-align: center;
   height: 740px;
-  width: 830px;
+  width: 750px;
   border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
   background: #FFE2D0;
 
-  animation: wave ease-in-out 10s;
+  animation: wave ease-in-out 8s;
   animation-iteration-count: infinite;
 
-  top: 200px;
-  left: 60px;
-  opacity: 0.2;
-
+  top: 120px;
 }
 
 @keyframes wave {
@@ -246,16 +261,15 @@ input[type="checkbox"]:checked~.modal-background {
   width: 120px;
   background: #984729;
   border-radius: 5px;
-  box-shadow: ;
   border-right: 1rem solid #FBB625;
   border-left: 1rem solid #FBB625;
 
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-  top: 699px;
-  left: 562px;
+top: -20px;
+right: -32px;
 
-  transform: scale(0.45);
+  transform: scale(0.40);
   animation: rotate 3s alternate ease-in-out;
 
   z-index: 2;
@@ -267,10 +281,10 @@ input[type="checkbox"]:checked~.modal-background {
   background: #FBB625;
 
   height: 1rem;
-  width: 90px;
+  width: 110px;
 
   /*position*/
-  left: ;
+  left: -15px;
   top: 25px;
 }
 
@@ -317,7 +331,10 @@ input[type="checkbox"]:checked~.modal-background {
 }
 
 /*SHARK*/
-.shark {
+/*.shark {
+ --shark: #AEB9BF;
+  --shark-shadow: #73848C;
+
   position: absolute;
   clip-path: polygon(23% 28%, 0% 100%, 100% 100%);
   border-radius: 9px;
@@ -336,7 +353,7 @@ input[type="checkbox"]:checked~.modal-background {
 
   /* name | duration | timing-function | iteration-count*/
   animation: swim 40s linear infinite;
-}
+}*/
 
 /* Starting on the left side and moves to the right. It changes its vertical position with transform: translateY().
 Opacity and scale are also animated */
@@ -380,3 +397,6 @@ Opacity and scale are also animated */
     transform: scale(1);
   }
 }*/
+
+
+/*PALM TREE*/

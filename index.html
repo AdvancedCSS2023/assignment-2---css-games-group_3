@@ -16,9 +16,11 @@
   <main>
 
     <div class="container">
-      <h1>Labrinth Game</h1>
+      <div><h1>Find the path to the treasure!</h1>
+      <p>PS: this game only works on a screen wider than 800px so far</p>
+    </div>
 
-      <div>
+      <div class="rules">
         <input type="checkbox" id="modal">
 
         <label for="modal" class="button">View rules</label>
@@ -27,10 +29,12 @@
 
         <div class="modal close">
           <label for="modal">&times;</label>
-          <p>Rules are simple. Walk step by step by hovering over a tile!</p>
-          <p>BEIGE = okey to step</p>
-          <p>RED = Wrong way</p>
-          <p>If you are going the wrong way go back to the beginning and try again</p>
+          <h2>Rules</h2>
+          <p>This will challenge your ability to remember, to make most out of the game, dont cheat!</p>
+          <p>Rules are simple. Use the mouse to hover over a tile!</p>
+          <p>&#128077 BEIGE = okey to step</p>
+          <p>&#128078 BLACK/CROSS = <u>Not</u> okey to step</p>
+          <p>If you encounter the wrong tile, go back to the beginning and try again.</p>
         </div>
       </div>
 
@@ -96,22 +100,24 @@
         <div class="step r"></div>
         <div class="step r"></div>
         <div class="step w"></div>
-        <div class="step exit">EXIT</div>
+
+        <div class="step exit">Exit
+          <div class="treasure-chest">
+            <div class="key-hole"></div>
+          </div>
+        </div>
+
         <div class="step w"></div>
       </div>
-    </div>
 
-    <div>
       <div class="waves"></div>
 
-      <div class="treasure-chest">
-        <div class="key-hole"></div>
-      </div>
 
       <div class="shark"></div>
 
       <div class="palms"></div>
     </div>
+
   </main>
 
   <!-- <footer>
