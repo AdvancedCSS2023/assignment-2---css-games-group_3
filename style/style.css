@@ -253,7 +253,7 @@ input[type="checkbox"]:checked~.modal-background {
 }
 
 /*TREASURE CHEST*/
-/*@keyframes rotate {
+@keyframes rotate {
   0% {
     transform: scale(7) rotate(0deg) translateX(-20%) translateY(-40%);
     opacity: 1;
@@ -263,7 +263,7 @@ input[type="checkbox"]:checked~.modal-background {
     transform: scale(0.45) rotate(360deg);
     opacity: 0.1;
   }
-}*/
+}
 
 .treasure-chest {
   position: absolute;
@@ -377,7 +377,7 @@ input[type="checkbox"]:checked~.modal-background {
 
 /* Starting on the left side and moves to the right. It changes its vertical position with transform: translateY().
 Opacity and scale are also animated */
-/*@keyframes swim {
+@keyframes swim {
   0% {
     left: 0;
     transform: translateY(-100%);
@@ -416,7 +416,7 @@ Opacity and scale are also animated */
   70% {
     transform: scale(1);
   }
-}*/
+}
 
 
 /*PALM TREE*/
