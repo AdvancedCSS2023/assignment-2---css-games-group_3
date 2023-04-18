@@ -126,7 +126,6 @@ p {
 /*MODAL*/
 .rules {
   grid-area: rule;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 /*Removes the checkbox*/
@@ -153,7 +152,7 @@ input[type="checkbox"]:checked~.modal-background {
   left: 0;
   display: none;
   z-index: 3;
-  
+
 }
 
 /*takes up the entire viewport. It has a z-index higher than the modal background to ensure that it appears on top*/
@@ -229,7 +228,7 @@ input[type="checkbox"]:checked~.modal-background {
   border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
   background: #FFE2D0;
 
-  animation: wave ease-in-out 8s;
+  animation: wave ease-in-out 7s;
   animation-iteration-count: infinite;
 
   top: 120px;
@@ -254,7 +253,7 @@ input[type="checkbox"]:checked~.modal-background {
 }
 
 /*TREASURE CHEST*/
-@keyframes rotate {
+/*@keyframes rotate {
   0% {
     transform: scale(7) rotate(0deg) translateX(-20%) translateY(-40%);
     opacity: 1;
@@ -264,7 +263,7 @@ input[type="checkbox"]:checked~.modal-background {
     transform: scale(0.45) rotate(360deg);
     opacity: 0.1;
   }
-}
+}*/
 
 .treasure-chest {
   position: absolute;
@@ -329,8 +328,8 @@ input[type="checkbox"]:checked~.modal-background {
   border-radius: 50%;
 
   /*position*/
-  left: 42px;
   top: 37px;
+  left: 42px;
 
   z-index: 2;
 }
@@ -344,20 +343,22 @@ input[type="checkbox"]:checked~.modal-background {
   width: 4px;
 
   /*position*/
-  left: 2px;
   top: 7px;
+  left: 2px;
+  
 }
 
 /*SHARK*/
 .shark {
   --shark: #AEB9BF;
   --shark-shadow: #73848C;
+  --shark-border: #95A4AD;
 
   position: absolute;
   clip-path: polygon(23% 28%, 0% 100%, 100% 100%);
   border-radius: 9px;
 
-  background: linear-gradient(354deg, rgba(174,185,191,1) 0%, rgba(115,132,140,1) 35%, rgba(114,125,129,1) 100%);
+  background: linear-gradient(354deg, rgba(174, 185, 191, 1) 0%, rgba(115, 132, 140, 1) 35%, rgba(114, 125, 129, 1) 100%);
 
   height: 40px;
   width: 50px;
@@ -365,7 +366,7 @@ input[type="checkbox"]:checked~.modal-background {
   top: 110px;
   left: 60px;
 
-  border: solid 2px #95A4AD;
+  border: solid 2px var(--shark-border);
   filter: drop-shadow(1px 1px 1px var(--white));
 
   z-index: -1;
@@ -376,7 +377,7 @@ input[type="checkbox"]:checked~.modal-background {
 
 /* Starting on the left side and moves to the right. It changes its vertical position with transform: translateY().
 Opacity and scale are also animated */
-@keyframes swim {
+/*@keyframes swim {
   0% {
     left: 0;
     transform: translateY(-100%);
@@ -415,7 +416,7 @@ Opacity and scale are also animated */
   70% {
     transform: scale(1);
   }
-}
+}*/
 
 
 /*PALM TREE*/
@@ -545,4 +546,58 @@ Opacity and scale are also animated */
   z-index: -2;
 
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+@media only screen and (max-width: 700px) {
+
+  h1,
+  h2,
+  h1+p {
+    inline-size: 350px;
+  }
+
+  .grid {
+    height: 350px;
+    width: 350px;
+  }
+
+  .step:nth-child(1) {
+    font-size: 5px;
+  }
+
+  .modal {
+    width: 100%;
+    height: fit-content;
+    padding: 80px;
+  }
+
+  .waves {
+    height: 380px;
+    width: 380px;
+    top: 210px;
+  }
+
+  .treasure-chest {
+    top: -33px;
+    right: -47px;
+    transform: scale(0.16);
+  }
+
+  .shark {
+    top: 180px;
+    left: 20px;
+    transform: scale(0.6);
+  }
+
+  .palm-tree {
+    top: -725px;
+    left: 30px;
+    transform: scale(0.2);
+  }
+
+  .palm-tree.two {
+    top: -1060px;
+    left: -60px;
+    transform: scale(0.15);
+  }
 }
