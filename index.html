@@ -14,12 +14,14 @@
 
 <body>
   <main>
-
+    <!-- header -->
     <div class="container">
-      <div><h1>Find the path to the treasure!</h1>
-      <p>(PS: for the best experience it is recommended playing on a laptop or a screen over 800px)</p>
-    </div>
+      <div>
+        <h1>Find the path to the treasure!</h1>
+        <p>(PS: for the best experience it is recommended playing on a laptop or a screen over 800px)</p>
+      </div>
 
+      <!-- rules -->
       <div class="rules">
         <input type="checkbox" id="modal">
 
@@ -27,6 +29,7 @@
 
         <label for="modal" class="modal-background"></label>
 
+        <!-- rules instructions-->
         <div class="modal close">
           <label for="modal">&times;</label>
           <h2>Rules</h2>
@@ -38,8 +41,9 @@
         </div>
       </div>
 
-
+      <!-- playboard -->
       <div class="grid">
+
         <!-- --------- 1 ------- -->
         <div class="step">START</div>
         <div class="step r"></div>
@@ -101,14 +105,17 @@
         <div class="step r"></div>
         <div class="step w"></div>
 
+        <!-- treasure chest location -->
         <div class="step exit">
           <div class="treasure-chest">
             <div class="key-hole"></div>
           </div>
         </div>
+
         <div class="step w"></div>
       </div>
 
+      <!-- animated elements/decorations -->
       <div class="waves"></div>
 
       <div class="shark"></div>
@@ -118,11 +125,11 @@
         <div class="leaf"></div>
         <div class="leaf"></div>
         <div class="leaf"></div>
-        
+
         <div class="coconut"></div>
         <div class="coconut"></div>
         <div class="coconut"></div>
-        
+
         <div class="trunk"></div>
       </div>
 
@@ -131,25 +138,30 @@
         <div class="leaf"></div>
         <div class="leaf"></div>
         <div class="leaf"></div>
-        
+
         <div class="coconut"></div>
         <div class="coconut"></div>
         <div class="coconut"></div>
-        
+
         <div class="trunk"></div>
       </div>
+
     </div>
 
   </main>
 
-  <!-- <footer>
-    <audio controls autoplay>
+  <footer>
+    <audio autoplay loop id="myAudio">
       <source src="assets/ocean.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
-    Sound Effect from <a
-      href="https://pixabay.com/sound-effects/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=7109">Pixabay</a>
-  </footer> -->
+
+  <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=7109"></a>
+  
+      <p> Sound Effect from Pixabay &#169; Eva Fossen Haugum</p>
+  </footer>
+
+  <script src="audio.js"></script>
 </body>
 
 </html>
