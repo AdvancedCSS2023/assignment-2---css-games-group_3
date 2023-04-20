@@ -40,6 +40,8 @@ body {
   font-family: kiddy, Helvetica, sans-serif;
   color: var(--text-color);
   letter-spacing: 1px;
+
+  overflow-x: hidden;
 }
 
 main {
@@ -59,13 +61,12 @@ h1+p {
 p {
   padding: 5px;
   letter-spacing: 0.3px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 img {
   height: auto;
   max-width: 100%;
-  
 }
 
 footer {
@@ -141,10 +142,11 @@ footer {
 
 .step:nth-child(1) {
   background: var(--step-r);
-  font-size: 15px;
+  font-size: 14px;
 }
 
-.step:nth-child(1), .w {
+.step:nth-child(1),
+.w {
   padding-top: 18px;
 }
 
@@ -213,7 +215,7 @@ input[type="checkbox"]:checked~.modal-background {
 
   border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
 
-  z-index: 4;
+  z-index: 20;
 }
 
 .modal>p {
@@ -298,6 +300,7 @@ span {
 }
 
 @keyframes wave {
+
   0%,
   50%,
   100% {
@@ -337,7 +340,8 @@ span {
 }
 
 /*SHARK*/
-.shark, .shark-two {
+.shark,
+.shark-two {
   --shark: #AEB9BF;
   --shark-shadow: #73848C;
   --shark-border: #95A4AD;
@@ -371,7 +375,7 @@ span {
 }
 
 .shark-two {
-clip-path: polygon(79% 36%, 0% 100%, 100% 100%); 
+  clip-path: polygon(79% 36%, 0% 100%, 100% 100%);
 
   bottom: -80px;
   right: 60px;
@@ -438,7 +442,7 @@ clip-path: polygon(79% 36%, 0% 100%, 100% 100%);
 
 .palm-tree.two {
   top: -70px;
- left: 1200px;
+  left: 1200px;
 
   transform: scale(0.3) rotate(-4deg);
 }
@@ -451,8 +455,8 @@ clip-path: polygon(79% 36%, 0% 100%, 100% 100%);
 
   border-radius: 5% 100% 0% 100% / 0% 100% 0% 100%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-border-left: 4px solid #96C34C;
-  
+  border-left: 4px solid #96C34C;
+
   height: 100px;
   width: 130px;
 }
@@ -573,7 +577,7 @@ border-left: 4px solid #96C34C;
 
   top: -420px;
   left: -60px;
-    z-index: -3;
+  z-index: -3;
 }
 
 /* ###################################################### */
@@ -604,16 +608,18 @@ border-left: 4px solid #96C34C;
     padding: 8vh;
   }
 
-  .step:nth-child(1), .step:nth-child(48) {
-    font-size: 60%;
+  .step:nth-child(1),
+  .step:nth-child(48) {
+    font-size: 40%;
   }
 
-  .step:nth-child(1), .w {
-    padding-top: 6px;
+  .step:nth-child(1),
+  .w {
+    padding-top: 3px;
   }
 
   .modal {
-    padding: 10%;
+    padding: 20% 14%;
     margin: auto 1%;
     width: 90%;
   }
@@ -638,5 +644,16 @@ border-left: 4px solid #96C34C;
     grid-template-areas:
       "rules"
       ".";
+  }
+
+  .w:hover::before {
+    font-size: smaller;
+  }
+}
+
+@media only screen and (max-height: 800px) {
+  .palm-tree {
+    top: 280px;
+    left: -100px;
   }
 }
