@@ -23,6 +23,23 @@
   padding: 0;
   margin: 0;
   border: solid 1px red;
+
+  max-height: 100%;
+  max-width: 100%;
+}
+
+span {
+  padding: 2%;
+  color: transparent;
+  text-shadow: 0 0 0 #128AAC;
+}
+
+.yes {
+  background-color: var(--step-r);
+}
+
+.no {
+  background-color: var(--step-w);
 }
 
 @font-face {
@@ -32,12 +49,12 @@
 
 body {
   background: radial-gradient(var(--background-color));
-  padding: 1%;
+  padding: 0.5%;
 
   font-family: kiddy, Helvetica, sans-serif;
   color: var(--text-color);
   letter-spacing: 1px;
-  overflow: hidden;
+
 }
 
 main {
@@ -60,17 +77,34 @@ p {
   font-size: 15px;
 }
 
+footer {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 10px;
+
+  align-items: end;
+
+  grid-template-areas:
+    ". rules";
+}
+
 /* ###################################################### */
 /*                        Main elements                   */
 /* ###################################################### */
 
 .container {
+  position: relative;
+
   display: grid;
   justify-content: center;
   justify-items: center;
   gap: 40px;
+
+  margin-bottom: 20px;
   height: 100%;
   width: 100%;
+
 }
 
 .grid {
@@ -80,14 +114,14 @@ p {
   grid-column-gap: 3px;
   grid-row-gap: 3px;
 
-  height: 700px;
-  width: 700px;
+  height: 75vh;
+  width: 75vh;
 
   background-color: var(--bg-color-island-steps);
   border: solid 10px var(--island-border);
   box-shadow: 0 20px 50px 30px var(--island-shadow);
   border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
-  padding: 18%;
+  padding: 14vh;
 
   z-index: 1;
 }
@@ -131,13 +165,6 @@ p {
 }
 
 /*MODAL*/
-.rules {
-  position: absolute;
-  grid-area: rule;
-  bottom: 30px;
-  right: 30px;
-}
-
 /*Removes the checkbox*/
 input[type="checkbox"],
 #modal {
@@ -208,22 +235,26 @@ input[type="checkbox"]:checked~.modal-background {
   opacity: 0.5;
 }
 
+.rules {
+  grid-area: rules;
+}
+
 /* styling for the rules button */
 .button {
   display: inline-block;
-  padding: 40px;
+  padding: 30px;
 
   background-color: var(--bg-color-rules);
   border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
 
-  font-size: 15px;
+  font-size: 14px;
   cursor: pointer;
 }
 
 /* styling when hovering rules button */
 .button:hover {
-  opacity: 0.8;
-  text-decoration: underline overline;
+  opacity: 0.9;
+  text-decoration: underline;
 }
 
 /* ###################################################### */
@@ -237,9 +268,10 @@ input[type="checkbox"]:checked~.modal-background {
 
   text-align: center;
 
-  height: 740px;
-  width: 750px;
-  top: 120px;
+  width: 80vh;
+  height: 80vh;
+
+  top: 100px;
 
   border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
 
@@ -280,11 +312,7 @@ input[type="checkbox"]:checked~.modal-background {
 
   animation: rotate 3s ease-in-out;
   transform: scale(0.40);
-  opacity: 0;
-}
-
-.exit:hover>.treasure-chest {
-  opacity: 1;
+  opacity: 0.2;
 }
 
 .exit:hover>.treasure-chest {
@@ -564,7 +592,7 @@ Opacity and scale are also animated */
 /* ###################################################### */
 /*                    Screens under 700px                 */
 /* ###################################################### */
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 750px) {
 
   h1,
   h2,
@@ -573,19 +601,8 @@ Opacity and scale are also animated */
   }
 
   .grid {
-    height: 350px;
-    width: 350px;
-  }
-
-  .container {
-    grid-template-areas:
-      "."
-      "."
-      "rule";
-  }
-
-  .rules {
-    position: static;
+    height: 100%;
+    width: 100%;
   }
 
   .step:nth-child(1) {
@@ -599,9 +616,10 @@ Opacity and scale are also animated */
   }
 
   .waves {
-    height: 380px;
-    width: 380px;
-    top: 210px;
+    height: 51vh;
+    width: 51vh;
+
+    top: 213px;
   }
 
   .treasure-chest {
@@ -626,5 +644,14 @@ Opacity and scale are also animated */
     top: -1060px;
     left: -60px;
     transform: scale(0.15);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  footer {
+    text-align: center;
+    grid-template-areas:
+      "rules"
+      ".";
   }
 }
