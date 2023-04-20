@@ -28,20 +28,6 @@
   max-width: 100%;
 }
 
-span {
-  padding: 2%;
-  color: transparent;
-  text-shadow: 0 0 0 #128AAC;
-}
-
-.yes {
-  background-color: var(--step-r);
-}
-
-.no {
-  background-color: var(--step-w);
-}
-
 @font-face {
   font-family: kiddy;
   src: url(../assets/Kiddy\ Play.ttf);
@@ -77,6 +63,12 @@ p {
   font-size: 15px;
 }
 
+img {
+  height: auto;
+  max-width: 100%;
+  
+}
+
 footer {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -93,21 +85,33 @@ footer {
 /*                        Main elements                   */
 /* ###################################################### */
 
+.title {
+  grid-area: title;
+}
+
 .container {
   position: relative;
 
   display: grid;
+  gap: 2% 2%;
   justify-content: center;
+  align-content: center;
   justify-items: center;
-  gap: 40px;
+  align-items: center;
 
-  margin-bottom: 20px;
+  grid-template-areas:
+    " title title title"
+    ". island ."
+    ". island ."
+    ". . .";
+
   height: 100%;
   width: 100%;
-
 }
 
 .grid {
+  position: relative;
+  grid-area: island;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(7, 1fr);
@@ -131,9 +135,8 @@ footer {
   text-transform: uppercase;
   cursor: pointer;
 
-  padding-top: 15px;
   border: solid 1px var(--island-border);
-  transition: 1s;
+  transition: 0.5s;
 
   z-index: 50;
 }
@@ -141,6 +144,10 @@ footer {
 .step:nth-child(1) {
   background: var(--step-r);
   font-size: 15px;
+}
+
+.step:nth-child(1), .w {
+  padding-top: 18px;
 }
 
 .r:hover {
@@ -216,6 +223,20 @@ input[type="checkbox"]:checked~.modal-background {
   font-size: 17px;
 }
 
+span {
+  padding: 2%;
+  color: transparent;
+  text-shadow: 0 0 0 #128AAC;
+}
+
+.yes {
+  background-color: var(--step-r);
+}
+
+.no {
+  background-color: var(--step-w);
+}
+
 .close {
   background-color: var(--bg-color-island-steps);
   height: fit-content;
@@ -242,12 +263,12 @@ input[type="checkbox"]:checked~.modal-background {
 /* styling for the rules button */
 .button {
   display: inline-block;
-  padding: 30px;
+  padding: 25px;
 
   background-color: var(--bg-color-rules);
   border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
 
-  font-size: 14px;
+  font-size: 15px;
   cursor: pointer;
 }
 
@@ -268,18 +289,17 @@ input[type="checkbox"]:checked~.modal-background {
 
   text-align: center;
 
-  width: 80vh;
-  height: 80vh;
+  width: 79vh;
+  height: 79vh;
 
-  top: 100px;
+  top: 98px;
 
   border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
 
-  animation: wave ease-in-out 7s infinite
+  animation: wave ease-in-out 1s infinite
 }
 
 @keyframes wave {
-
   0%,
   50%,
   100% {
@@ -293,104 +313,33 @@ input[type="checkbox"]:checked~.modal-background {
 
 /*TREASURE CHEST*/
 .treasure-chest {
-  --treasure-chest: #984729;
-  --treasure-chest-border: #FBB625;
-  position: absolute;
-  background: var(--treasure-chest);
-
-  border-radius: 5px;
-  border-right: 1rem solid var(--treasure-chest-border);
-  border-left: 1rem solid var(--treasure-chest-border);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-  height: 90px;
-  width: 120px;
-
-  /*position*/
-  top: -20px;
-  right: -32px;
-
   animation: rotate 3s ease-in-out;
-  transform: scale(0.40);
-  opacity: 0.2;
+  opacity: 0.1;
+
+  z-index: 1;
 }
 
 .exit:hover>.treasure-chest {
   opacity: 1;
 }
 
-.treasure-chest::before {
-  content: "";
-  position: absolute;
-  background: var(--treasure-chest-border);
-
-  height: 1rem;
-  width: 110px;
-
-  /*position*/
-  left: -15px;
-  top: 25px;
-}
-
-.treasure-chest::after {
-  content: "";
-  position: absolute;
-  background: var(--treasure-chest-border);
-
-  height: 35px;
-  width: 45px;
-
-  /*position*/
-  left: 25px;
-  top: 25px;
-
-  border-radius: 0 0 50% 50%/0 0 100% 100%;
-}
-
-.key-hole {
-  --key-hole: #641C26;
-  position: absolute;
-  background: var(--key-hole);
-  border-radius: 50%;
-
-  height: 10px;
-  width: 10px;
-
-  /*position*/
-  top: 37px;
-  left: 42px;
-
-  z-index: 2;
-}
-
-.key-hole::before {
-  content: "";
-  position: absolute;
-  background: var(--key-hole);
-
-  height: 7px;
-  width: 4px;
-
-  /*position*/
-  top: 7px;
-  left: 2px;
-
-}
-
+/*intro when entering the page*/
 /*@keyframes rotate {
   0% {
-    transform: scale(7) rotate(0deg) translateX(-20%) translateY(-40%);
+    transform: scale(10) rotate(0deg) translateX(-20%) translateY(-40%);
     opacity: 1;
   }
 
   100% {
-    transform: scale(0.45) rotate(360deg);
+    transform: scale(1) rotate(360deg);
     opacity: 0.1;
   }
 }*/
 
 /*SHARK*/
-.shark {
+.shark, .shark-two {
   --shark: #AEB9BF;
   --shark-shadow: #73848C;
   --shark-border: #95A4AD;
@@ -398,13 +347,21 @@ input[type="checkbox"]:checked~.modal-background {
   position: absolute;
   background: linear-gradient(354deg, rgba(174, 185, 191, 1) 0%, rgba(115, 132, 140, 1) 35%, rgba(114, 125, 129, 1) 100%);
 
-  clip-path: polygon(23% 28%, 0% 100%, 100% 100%);
   border-radius: 9px;
   border: solid 2px var(--shark-border);
   filter: drop-shadow(1px 1px 1px var(--white));
 
   height: 40px;
   width: 50px;
+
+  z-index: -1;
+
+  /* name | duration | timing-function | iteration-count*/
+  animation: swim 40s linear infinite;
+}
+
+.shark {
+  clip-path: polygon(23% 28%, 0% 100%, 100% 100%);
 
   top: 110px;
   left: 60px;
@@ -415,8 +372,17 @@ input[type="checkbox"]:checked~.modal-background {
   animation: swim 40s linear infinite;
 }
 
-/* Starting on the left side and moves to the right. It changes its vertical position with transform: translateY().
-Opacity and scale are also animated */
+.shark-two {
+clip-path: polygon(79% 36%, 0% 100%, 100% 100%); 
+
+  bottom: 10px;
+  right: 60px;
+
+  animation-direction: reverse;
+  animation-duration: 50s;
+}
+
+/* Starting on the left side and moves to the right. It changes its vertical position with transform: translateY(). Opacity and scale are also animated */
 
 @keyframes swim {
   0% {
@@ -459,20 +425,19 @@ Opacity and scale are also animated */
   }
 }
 
-
 /*PALM TREE*/
 .palm-tree {
-  position: relative;
+  position: sticky;
   transform: scale(0.4);
 
-  top: -670px;
-  left: 260px;
+  top: 200px;
+  left: 350px;
   z-index: 1;
 }
 
 .palm-tree.two {
-  top: -930px;
-  left: -100px;
+  top: 0;
+  left: 0;
   transform: scale(0.3) rotate(10deg);
 }
 
@@ -592,7 +557,7 @@ Opacity and scale are also animated */
 /* ###################################################### */
 /*                    Screens under 700px                 */
 /* ###################################################### */
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 700px) {
 
   h1,
   h2,
@@ -601,31 +566,27 @@ Opacity and scale are also animated */
   }
 
   .grid {
-    height: 100%;
-    width: 100%;
+    height: 43vh;
+    width: 43vh;
+
+    padding: 8vh;
   }
 
-  .step:nth-child(1) {
-    font-size: 5px;
+  .step:nth-child(1), .step:nth-child(48) {
+    font-size: 60%;
   }
 
   .modal {
-    padding: 80px;
-    height: fit-content;
-    width: 100%;
+    padding: 10%;
+    margin: auto 1%;
+    width: 90%;
   }
 
   .waves {
-    height: 51vh;
-    width: 51vh;
+    height: 46vh;
+    width: 46vh;
 
-    top: 213px;
-  }
-
-  .treasure-chest {
-    top: -33px;
-    right: -47px;
-    transform: scale(0.16);
+    top: 300px;
   }
 
   .shark {

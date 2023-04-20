@@ -16,16 +16,13 @@
   <main>
     <!-- header -->
     <div class="container">
-      <div>
+      <div class="title">
         <h1>Find the path to the treasure!</h1>
-        <p>(PS: for the best experience it is recommended playing on a laptop or a screen over 800px)</p>
+        <p>(PS: for the best experience it is recommended playing on a screen wider than 900px)</p>
       </div>
-
-      
 
       <!-- playboard -->
       <div class="grid">
-
         <!-- --------- 1 ------- -->
         <div class="step">START</div>
         <div class="step r"></div>
@@ -88,21 +85,22 @@
         <div class="step w"></div>
 
         <!-- treasure chest location -->
-        <div class="step exit">
-          <div class="treasure-chest">
-            <div class="key-hole"></div>
-          </div>
+        <div class="step exit">Goal 
+          <img class="treasure-chest" src="assets/treasure-chest.png" alt="treasure chest"></div>
+
+       <!-- treasure chest: https://codepen.io/evafha/pen/mdzPMBz?editors=1100 -->
+
+          <div class="step w"></div>
         </div>
 
-        <div class="step w"></div>
-      </div>
-
-      <!-- animated elements/decorations -->
+        <!-- animated elements/decorations -->
       <div class="waves"></div>
 
       <div class="shark"></div>
 
-      <div class="palm-tree">
+      <div class="shark-two"></div>
+
+      <!--<div class="palm-tree">
         <div class="leaf"></div>
         <div class="leaf"></div>
         <div class="leaf"></div>
@@ -126,34 +124,35 @@
         <div class="coconut"></div>
 
         <div class="trunk"></div>
-      </div>
+      </div>-->
 
     </div>
 
   </main>
 
   <footer>
-      <p>&#169; Eva Fossen Haugum</p>
+    <p>&#169; Eva Fossen Haugum</p>
 
-      <!-- rules -->
-      <div class="rules">
-        <input type="checkbox" id="modal">
+    <!-- rules -->
+    <div class="rules">
+      <input type="checkbox" id="modal">
 
-        <label for="modal" class="button">View rules</label>
+      <label for="modal" class="button">View rules</label>
 
-        <label for="modal" class="modal-background"></label>
+      <label for="modal" class="modal-background"></label>
 
-        <!-- rules instructions-->
-        <div class="modal close">
-          <label for="modal">&times;</label>
-          <h2>Rules</h2>
-          <p>This will challenge your ability to remember, to make most out of the game, dont cheat!</p>
-          <p>Rules are simple. Use the mouse to <u>hover</u> over a tile. Directions are &#11014 &#10145 &#11015 &#11013 (not vertically)</p>
-          <p> <span class="yes">&#128077</span> BEIGE = okey to step</p>
-          <p><span class="no">&#128078</span> BLACK/CROSS = <u>Not</u> okey to step</p>
-          <p>If you encounter the wrong tile, go back to the beginning and try again.</p>
-        </div>
+      <!-- rules instructions-->
+      <div class="modal close">
+        <label for="modal">&times;</label>
+        <h2>Rules</h2>
+        <p>This will challenge your ability to remember, to make most out of the game, dont cheat!</p>
+        <p>Rules are simple. Use the mouse to <u>hover</u> over a tile. Directions are &#11014 &#10145 &#11015 &#11013
+          (not vertically)</p>
+        <p> <span class="yes">&#128077</span> BEIGE = okey to step</p>
+        <p><span class="no">&#128078</span> BLACK/CROSS = <u>Not</u> okey to step</p>
+        <p>If you encounter the wrong tile, go back to the beginning and try again.</p>
       </div>
+    </div>
   </footer>
 </body>
 
