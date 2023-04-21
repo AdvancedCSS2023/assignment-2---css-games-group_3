@@ -86,7 +86,7 @@ footer {
 /* ###################################################### */
 
 .title {
-  grid-area: title;
+  grid-area: container__title;
 }
 
 .container {
@@ -99,7 +99,7 @@ footer {
   align-items: center;
 
   grid-template-areas:
-    "title title title"
+    "container__title container__title container__title"
     ". island ."
     ". island ."
     ". . .";
