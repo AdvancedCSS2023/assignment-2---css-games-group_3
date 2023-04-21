@@ -8,8 +8,9 @@
   <meta name="keywords" content="Memory Game">
   <meta name="author" content="Eva Fossen Haugum">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style/style.css">
-  <title>Document</title>
+  <link rel="icon" type="image/png" href="images/treasure-chest.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Treasure Hunt</title>
 </head>
 
 <body>
@@ -23,7 +24,7 @@
 
       <!-- playboard -->
       <div class="grid">
-        <!-- --------- 1 ------- -->
+        <!-- 1 -->
         <div class="step">START</div>
         <div class="step r"></div>
         <div class="step r"></div>
@@ -32,7 +33,7 @@
         <div class="step w"></div>
         <div class="step w"></div>
 
-        <!-- --------- 2 ------- -->
+        <!-- 2 -->
         <div class="step r"></div>
         <div class="step w"></div>
         <div class="step w"></div>
@@ -41,7 +42,7 @@
         <div class="step r"></div>
         <div class="step r"></div>
 
-        <!-- --------- 3 ------- -->
+        <!-- 3 -->
         <div class="step r"></div>
         <div class="step r"></div>
         <div class="step r"></div>
@@ -50,7 +51,7 @@
         <div class="step w"></div>
         <div class="step r"></div>
 
-        <!-- --------- 4 ------- -->
+        <!-- 4 -->
         <div class="step w"></div>
         <div class="step r"></div>
         <div class="step w"></div>
@@ -59,7 +60,7 @@
         <div class="step w"></div>
         <div class="step w"></div>
 
-        <!-- --------- 5 ------- -->
+        <!-- 5 -->
         <div class="step r"></div>
         <div class="step r"></div>
         <div class="step w"></div>
@@ -68,7 +69,7 @@
         <div class="step r"></div>
         <div class="step w"></div>
 
-        <!-- --------- 6 ------- -->
+        <!-- 6 -->
         <div class="step r"></div>
         <div class="step w"></div>
         <div class="step w"></div>
@@ -77,7 +78,7 @@
         <div class="step r"></div>
         <div class="step w"></div>
 
-        <!-- --------- 7 ------- -->
+        <!-- 7 -->
         <div class="step r"></div>
         <div class="step r"></div>
         <div class="step r"></div>
@@ -85,49 +86,53 @@
         <div class="step w"></div>
 
         <!-- treasure chest location -->
-        <div class="step exit">Goal 
-          <img class="treasure-chest" src="assets/treasure-chest.png" alt="treasure chest"></div>
-
-       <!-- treasure chest: https://codepen.io/evafha/pen/mdzPMBz?editors=1100 -->
-
-          <div class="step w"></div>
+        <div class="step exit">Goal
+          <img class="treasure-chest" src="images/treasure-chest.png" alt="treasure chest">
         </div>
 
-        <!-- animated elements/decorations -->
+        <!-- i had major issues implementing the code for the treasure chest, so I ended up using a picture of it, but I have the link under -->
+        <!-- link to the treasure chest: https://codepen.io/evafha/pen/mdzPMBz?editors=1100 -->
+
+        <div class="step w"></div>
+      </div>
+
+      <!-- animated elements/decorations -->
       <div class="waves"></div>
 
       <div class="shark"></div>
 
       <div class="shark-two"></div>
-
-      <!--<div class="palm-tree">
-        <div class="leaf"></div>
-        <div class="leaf"></div>
-        <div class="leaf"></div>
-        <div class="leaf"></div>
-
-        <div class="coconut"></div>
-        <div class="coconut"></div>
-        <div class="coconut"></div>
-
-        <div class="trunk"></div>
-      </div>
-
-      <div class="palm-tree two">
-        <div class="leaf"></div>
-        <div class="leaf"></div>
-        <div class="leaf"></div>
-        <div class="leaf"></div>
-
-        <div class="coconut"></div>
-        <div class="coconut"></div>
-        <div class="coconut"></div>
-
-        <div class="trunk"></div>
-      </div>-->
-
     </div>
 
+    <div class="palm-tree">
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+
+      <div class="coconut"></div>
+      <div class="coconut"></div>
+      <div class="coconut"></div>
+
+      <div class="trunk"></div>
+
+      <div class="sand"></div>
+    </div>
+
+    <div class="palm-tree two">
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+
+      <div class="coconut"></div>
+      <div class="coconut"></div>
+      <div class="coconut"></div>
+
+      <div class="trunk"></div>
+
+      <div class="sand"></div>
+    </div>
   </main>
 
   <footer>
@@ -146,13 +151,14 @@
         <label for="modal">&times;</label>
         <h2>Rules</h2>
         <p>This will challenge your ability to remember, to make most out of the game, dont cheat!</p>
-        <p>Rules are simple. Use the mouse to <u>hover</u> over a tile. Directions are &#11014 &#10145 &#11015 &#11013
-          (not vertically)</p>
-        <p> <span class="yes">&#128077</span> BEIGE = okey to step</p>
-        <p><span class="no">&#128078</span> BLACK/CROSS = <u>Not</u> okey to step</p>
-        <p>If you encounter the wrong tile, go back to the beginning and try again.</p>
+        <p>Rules are simple. Use the mouse to <u>hover</u> over a tile. Directions are &#11014; &#10145; &#11015; &#11013;
+          (not diagonally)</p>
+        <p> <span class="yes">&#128077;</span> BEIGE = okey to step</p>
+        <p><span class="no">&#128078;</span> BLACK/CROSS = <u>Not</u> okey to step</p>
+        <p>If you encounter the wrong tile, go back to the beginning and try again until you get to the treasure chest!</p>
       </div>
     </div>
+
   </footer>
 </body>
 
