@@ -85,7 +85,7 @@ footer {
 /*                        Main elements                   */
 /* ###################################################### */
 
-.title {
+.container__title {
   grid-area: container__title;
 }
 
@@ -108,7 +108,7 @@ footer {
   width: 100%;
 }
 
-.grid {
+.container__grid {
   position: relative;
   grid-area: island;
   display: grid;
@@ -129,7 +129,7 @@ footer {
   z-index: 1;
 }
 
-.step {
+.tile {
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
@@ -140,12 +140,12 @@ footer {
   z-index: 50;
 }
 
-.step:nth-child(1) {
+.tile:nth-child(1) {
   background: var(--step-r);
   font-size: 14px;
 }
 
-.step:nth-child(1),
+.tile:nth-child(1),
 .w {
   padding-top: 18px;
 }
@@ -180,12 +180,12 @@ input[type="checkbox"],
 
 /*sets the display property to block when the checkbox is checked/clicked*/
 input[type="checkbox"]:checked~.modal,
-input[type="checkbox"]:checked~.modal-background {
+input[type="checkbox"]:checked~.rules__modal-background {
   display: block;
 }
 
 /*gives a semi-transparent background and is positioned fixed to cover the entire viewport*/
-.modal-background {
+.rules__modal-background {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.8);
   display: none;
@@ -229,11 +229,11 @@ span {
   text-shadow: 0 0 0 #128AAC;
 }
 
-.yes {
+.rules__thumbs-up {
   background-color: var(--step-r);
 }
 
-.no {
+.rules__thumbs-down {
   background-color: var(--step-w);
 }
 
@@ -261,7 +261,7 @@ span {
 }
 
 /* styling for the rules button */
-.button {
+.rules__button {
   display: inline-block;
   padding: 25px;
 
@@ -273,7 +273,7 @@ span {
 }
 
 /* styling when hovering rules button */
-.button:hover {
+.rules__button:hover {
   opacity: 0.9;
   text-decoration: underline;
 }
@@ -341,7 +341,7 @@ span {
 
 /*SHARK*/
 .shark,
-.shark-two {
+.shark__two {
   --shark: #AEB9BF;
   --shark-shadow: #73848C;
   --shark-border: #95A4AD;
@@ -374,7 +374,7 @@ span {
   animation: swim 40s linear infinite;
 }
 
-.shark-two {
+.shark__two {
   clip-path: polygon(79% 36%, 0% 100%, 100% 100%);
 
   bottom: -80px;
@@ -432,8 +432,8 @@ span {
   position: fixed;
   transform: scale(0.5);
 
-  top: 400px;
-  left: -25px;
+  top: 45%;
+  left: 2%;
 
   z-index: 1;
 
@@ -447,7 +447,7 @@ span {
   transform: scale(0.3) rotate(-4deg);
 }
 
-.leaf {
+.palm-tree__leaf {
   --leaf-light: #76B711;
   --leaf-dark: #39AB10;
   position: relative;
@@ -461,14 +461,14 @@ span {
   width: 130px;
 }
 
-.leaf:nth-child(2) {
+.palm-tree__leaf:nth-child(2) {
   background: var(--leaf-light);
   transform: rotate(115deg);
   top: -115px;
   left: 105px;
 }
 
-.leaf:nth-child(3) {
+.palm-tree__leaf:nth-child(3) {
   background: var(--leaf-dark);
   transform: rotate(-20deg);
   top: -140px;
@@ -478,7 +478,7 @@ span {
   width: 122px;
 }
 
-.leaf:nth-child(4) {
+.palm-tree__leaf:nth-child(4) {
   background: var(--leaf-light);
   transform: rotate(290deg);
   top: -220px;
@@ -488,7 +488,7 @@ span {
   width: 110px;
 }
 
-.leaf::after {
+.palm-tree__leaf::after {
   content: '';
   position: absolute;
   border-left: 2px solid transparent;
@@ -500,18 +500,18 @@ span {
   left: 0;
 }
 
-.leaf:nth-child(3)::after {
+.palm-tree__leaf:nth-child(3)::after {
   transform: rotate(65deg);
   top: 65px;
   left: 50px;
   border-bottom: 20px solid var(--island-border);
 }
 
-.leaf:nth-child(4)::after {
+.palm-tree__leaf:nth-child(4)::after {
   border-bottom: 20px solid var(--island-border)
 }
 
-.coconut {
+.palm-tree__coconut {
   --coconut: #5D3C02;
   --coconut-shadow: #6A4502;
   position: relative;
@@ -526,7 +526,7 @@ span {
   left: 85px;
 }
 
-.coconut:nth-child(6) {
+.palm-tree__coconut:nth-child(6) {
   top: -335px;
   left: 92px;
 
@@ -534,7 +534,7 @@ span {
   height: 32px;
 }
 
-.coconut:nth-child(7) {
+.palm-tree__coconut:nth-child(7) {
   top: -390px;
   left: 110px;
 
@@ -542,7 +542,7 @@ span {
   height: 34px;
 }
 
-.trunk {
+.palm-tree__trunk {
   --trunk-light: #A45B17;
   --trunk-dark: #843C02;
   position: relative;
@@ -566,7 +566,7 @@ span {
   z-index: -2;
 }
 
-.sand {
+.palm-tree__sand {
   position: relative;
   background: var(--bg-color-island-steps);
   border-radius: 50%;
@@ -583,9 +583,14 @@ span {
 /* ###################################################### */
 /*                    Different screens                */
 /* ###################################################### */
+@media only screen and (max-width: 1100px) {
+  .palm-tree {
+    transform: scale(0.4);
+  }
+}
+
 @media only screen and (max-width: 1000px) {
   .palm-tree {
-    top: 370px;
     transform: scale(0.2);
   }
 }
@@ -601,19 +606,19 @@ span {
     inline-size: 350px;
   }
 
-  .grid {
+  .container__grid {
     height: 43vh;
     width: 43vh;
 
     padding: 8vh;
   }
 
-  .step:nth-child(1),
-  .step:nth-child(48) {
+  .tile:nth-child(1),
+  .tile:nth-child(48) {
     font-size: 40%;
   }
 
-  .step:nth-child(1),
+  .tile:nth-child(1),
   .w {
     padding-top: 3px;
   }
@@ -628,7 +633,7 @@ span {
     height: 48vh;
     width: 46vh;
 
-    top: 205px;
+    top: 180px;
   }
 
   .shark {

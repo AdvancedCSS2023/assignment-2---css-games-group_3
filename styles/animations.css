@@ -1,300 +1,300 @@
 @import "general.css";
-@import "main.css";
+
 
 /*WAVES*/
 .waves {
-    position: absolute;
-    background: var(--bg-color-island-steps);
-  
-    text-align: center;
-  
-    width: 81vh;
-    height: 85vh;
-  
-    top: 99px;
-  
-    border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
-  
-    animation: wave ease-in-out 7s infinite
+  position: absolute;
+  background: var(--bg-color-island-steps);
+
+  text-align: center;
+
+  width: 81vh;
+  height: 85vh;
+
+  top: 99px;
+
+  border-radius: 62% 38% 60% 40% / 56% 66% 34% 44%;
+
+  animation: wave ease-in-out 7s infinite
+}
+
+@keyframes wave {
+
+  0%,
+  50%,
+  100% {
+    opacity: 0;
   }
-  
-  @keyframes wave {
-  
-    0%,
-    50%,
-    100% {
-      opacity: 0;
-    }
-  
-    30% {
-      opacity: 0.2;
-    }
+
+  30% {
+    opacity: 0.2;
   }
-  
-  /*TREASURE CHEST*/
-  .treasure-chest {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  
-    animation: rotate 2s ease-in-out;
-    opacity: 0.1;
-  
-    z-index: 1;
-  }
-  
-  .exit:hover>.treasure-chest {
+}
+
+/*TREASURE CHEST*/
+.treasure-chest {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  animation: rotate 3s ease-in-out;
+  opacity: 0.1;
+
+  z-index: 1;
+}
+
+.exit:hover>.treasure-chest {
+  opacity: 1;
+}
+
+/*intro when entering the page*/
+@keyframes rotate {
+  0% {
+    transform: scale(10) rotate(0deg) translateX(-20%) translateY(-40%);
     opacity: 1;
   }
-  
-  /*intro when entering the page*/
-  @keyframes rotate {
-    0% {
-      transform: scale(12) rotate(0deg) translateX(-20%) translateY(-40%);
-      opacity: 1;
-    }
-  
-    100% {
-      transform: scale(1) rotate(360deg);
-      opacity: 0.1;
-    }
+
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 0.1;
   }
-  
-  /*SHARK*/
-  .shark,
-  .shark__two {
-    --shark: #AEB9BF;
-    --shark-shadow: #73848C;
-    --shark-border: #95A4AD;
-  
-    position: absolute;
-    background: linear-gradient(354deg, rgba(174, 185, 191, 1) 0%, rgba(115, 132, 140, 1) 35%, rgba(114, 125, 129, 1) 100%);
-  
-    border-radius: 9px;
-    border: solid 2px var(--shark-border);
-    filter: drop-shadow(1px 1px 1px var(--white));
-  
-    height: 40px;
-    width: 50px;
-  
-    z-index: -1;
-  
-    /* name | duration | timing-function | iteration-count*/
-    animation: swim 40s linear infinite;
-  }
-  
-  .shark {
-    clip-path: polygon(23% 28%, 0% 100%, 100% 100%);
-  
-    top: 110px;
-    left: 60px;
-  
-    z-index: -1;
-  
-    /* name | duration | timing-function | iteration-count*/
-    animation: swim 40s linear infinite;
-  }
-  
-  .shark__two {
-    clip-path: polygon(79% 36%, 0% 100%, 100% 100%);
-  
-    bottom: -80px;
-    right: 60px;
-  
-    animation-direction: reverse;
-    animation-duration: 50s;
-  }
-  
-  /* Starting on the left side and moves to the right. It changes its vertical position with transform: translateY(). Opacity and scale are also animated */
-  
-  @keyframes swim {
-    0% {
-      left: 0;
-      transform: translateY(-100%);
-    }
-  
-    25% {
-      left: 25%;
-      transform: translateY(30%);
-    }
-  
-    50% {
-      left: 50%;
-      transform: translateY(-50%);
-    }
-  
-    75% {
-      left: 75%;
-      transform: translateY(30%);
-    }
-  
-    100% {
-      left: 100%;
-      transform: translateY(100%);
-    }
-  
-    0%,
-    100% {
-      opacity: 1;
-    }
-  
-    50% {
-      opacity: 0;
-      transform: scale(0.4);
-    }
-  
-    70% {
-      transform: scale(1);
-    }
-  }
-  
-  /*PALM TREE*/
-  .palm-tree {
-    position: fixed;
-    transform: scale(0.5);
-  
-    top: 400px;
-    left: -25px;
-  
-    z-index: 1;
-  
-    filter: drop-shadow(6px 5px 4px var(--step-w));
-  }
-  
-  .palm-tree.two {
-    top: -70px;
-    left: 1200px;
-  
-    transform: scale(0.3) rotate(-4deg);
-  }
-  
-  .palm-tree__leaf {
-    --leaf-light: #76B711;
-    --leaf-dark: #39AB10;
-    position: relative;
-    background: var(--leaf-dark);
-  
-    border-radius: 5% 100% 0% 100% / 0% 100% 0% 100%;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    border-left: 4px solid #96C34C;
-  
-    height: 100px;
-    width: 130px;
-  }
-  
-  .palm-tree__leaf:nth-child(2) {
-    background: var(--leaf-light);
-    transform: rotate(115deg);
-    top: -115px;
-    left: 105px;
-  }
-  
-  .palm-tree__leaf:nth-child(3) {
-    background: var(--leaf-dark);
-    transform: rotate(-20deg);
-    top: -140px;
-    left: 110px;
-  
-    height: 95px;
-    width: 122px;
-  }
-  
-  .palm-tree__leaf:nth-child(4) {
-    background: var(--leaf-light);
-    transform: rotate(290deg);
-    top: -220px;
-    left: 7px;
-  
-    height: 90px;
-    width: 110px;
-  }
-  
-  .palm-tree__leaf::after {
-    content: '';
-    position: absolute;
-    border-left: 2px solid transparent;
-    border-right: 7px solid transparent;
-    border-bottom: 20px solid var(--ocean);
-    transform: rotate(65deg);
-  
-    top: 20px;
+}
+
+/*SHARK*/
+.shark,
+.shark__two {
+  --shark: #AEB9BF;
+  --shark-shadow: #73848C;
+  --shark-border: #95A4AD;
+
+  position: absolute;
+  background: linear-gradient(354deg, rgba(174, 185, 191, 1) 0%, rgba(115, 132, 140, 1) 35%, rgba(114, 125, 129, 1) 100%);
+
+  border-radius: 9px;
+  border: solid 2px var(--shark-border);
+  filter: drop-shadow(1px 1px 1px var(--white));
+
+  height: 40px;
+  width: 50px;
+
+  z-index: -1;
+
+  /* name | duration | timing-function | iteration-count*/
+  animation: swim 40s linear infinite;
+}
+
+.shark {
+  clip-path: polygon(23% 28%, 0% 100%, 100% 100%);
+
+  top: 110px;
+  left: 60px;
+
+  z-index: -1;
+
+  /* name | duration | timing-function | iteration-count*/
+  animation: swim 40s linear infinite;
+}
+
+.shark__two {
+  clip-path: polygon(79% 36%, 0% 100%, 100% 100%);
+
+  bottom: -80px;
+  right: 60px;
+
+  animation-direction: reverse;
+  animation-duration: 50s;
+}
+
+/* Starting on the left side and moves to the right. It changes its vertical position with transform: translateY(). Opacity and scale are also animated */
+
+@keyframes swim {
+  0% {
     left: 0;
+    transform: translateY(-100%);
   }
-  
-  .palm-tree__leaf:nth-child(3)::after {
-    transform: rotate(65deg);
-    top: 65px;
-    left: 50px;
-    border-bottom: 20px solid var(--island-border);
+
+  25% {
+    left: 25%;
+    transform: translateY(30%);
   }
-  
-  .palm-tree__leaf:nth-child(4)::after {
-    border-bottom: 20px solid var(--island-border)
+
+  50% {
+    left: 50%;
+    transform: translateY(-50%);
   }
-  
-  .palm-tree__coconut {
-    --coconut: #5D3C02;
-    --coconut-shadow: #6A4502;
-    position: relative;
-    background: var(--coconut);
-    border-radius: 50%;
-    border-left: 5px solid var(--coconut-shadow);
-  
-    width: 30px;
-    height: 30px;
-  
-    top: -330px;
-    left: 85px;
+
+  75% {
+    left: 75%;
+    transform: translateY(30%);
   }
-  
-  .palm-tree__coconut:nth-child(6) {
-    top: -335px;
-    left: 92px;
-  
-    width: 33px;
-    height: 32px;
+
+  100% {
+    left: 100%;
+    transform: translateY(100%);
   }
-  
-  .palm-tree__coconut:nth-child(7) {
-    top: -390px;
-    left: 110px;
-  
-    width: 32px;
-    height: 34px;
+
+  0%,
+  100% {
+    opacity: 1;
   }
-  
-  .palm-tree__trunk {
-    --trunk-light: #A45B17;
-    --trunk-dark: #843C02;
-    position: relative;
-    background: repeating-radial-gradient(circle at top,
-        var(--trunk-light),
-        var(--trunk-light) 8px,
-        var(--trunk-dark) 15px,
-        var(--trunk-dark) 9px);
-    border-radius: 90% 20% / 10% 30%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  
-    transform: translateX(-50%);
-    transform: rotate(-7deg);
-  
-    top: -390px;
-    left: 107px;
-  
-    width: 30px;
-    height: 70px;
-  
-    z-index: -2;
+
+  50% {
+    opacity: 0;
+    transform: scale(0.4);
   }
-  
-  .palm-tree__sand {
-    position: relative;
-    background: var(--bg-color-island-steps);
-    border-radius: 50%;
-    box-shadow: 0 10px 50px 10px var(--island-shadow);
-    border: solid 10px var(--island-border);
-    width: 400px;
-    height: 100px;
-  
-    top: -420px;
-    left: -60px;
-    z-index: -3;
+
+  70% {
+    transform: scale(1);
   }
+}
+
+/*PALM TREE*/
+.palm-tree {
+  position: fixed;
+  transform: scale(0.5);
+
+  top: 400px;
+  left: -25px;
+
+  z-index: 1;
+
+  filter: drop-shadow(6px 5px 4px var(--step-w));
+}
+
+.palm-tree.two {
+  top: -70px;
+  left: 1200px;
+
+  transform: scale(0.3) rotate(-4deg);
+}
+
+.palm-tree__leaf {
+  --leaf-light: #76B711;
+  --leaf-dark: #39AB10;
+  position: relative;
+  background: var(--leaf-dark);
+
+  border-radius: 5% 100% 0% 100% / 0% 100% 0% 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-left: 4px solid #96C34C;
+
+  height: 100px;
+  width: 130px;
+}
+
+.palm-tree__leaf:nth-child(2) {
+  background: var(--leaf-light);
+  transform: rotate(115deg);
+  top: -115px;
+  left: 105px;
+}
+
+.palm-tree__leaf:nth-child(3) {
+  background: var(--leaf-dark);
+  transform: rotate(-20deg);
+  top: -140px;
+  left: 110px;
+
+  height: 95px;
+  width: 122px;
+}
+
+.palm-tree__leaf:nth-child(4) {
+  background: var(--leaf-light);
+  transform: rotate(290deg);
+  top: -220px;
+  left: 7px;
+
+  height: 90px;
+  width: 110px;
+}
+
+.palm-tree__leaf::after {
+  content: '';
+  position: absolute;
+  border-left: 2px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 20px solid var(--ocean);
+  transform: rotate(65deg);
+
+  top: 20px;
+  left: 0;
+}
+
+.palm-tree__leaf:nth-child(3)::after {
+  transform: rotate(65deg);
+  top: 65px;
+  left: 50px;
+  border-bottom: 20px solid var(--island-border);
+}
+
+.palm-tree__leaf:nth-child(4)::after {
+  border-bottom: 20px solid var(--island-border)
+}
+
+.palm-tree__coconut {
+  --coconut: #5D3C02;
+  --coconut-shadow: #6A4502;
+  position: relative;
+  background: var(--coconut);
+  border-radius: 50%;
+  border-left: 5px solid var(--coconut-shadow);
+
+  width: 30px;
+  height: 30px;
+
+  top: -330px;
+  left: 85px;
+}
+
+.palm-tree__coconut:nth-child(6) {
+  top: -335px;
+  left: 92px;
+
+  width: 33px;
+  height: 32px;
+}
+
+.palm-tree__coconut:nth-child(7) {
+  top: -390px;
+  left: 110px;
+
+  width: 32px;
+  height: 34px;
+}
+
+.palm-tree__trunk {
+  --trunk-light: #A45B17;
+  --trunk-dark: #843C02;
+  position: relative;
+  background: repeating-radial-gradient(circle at top,
+      var(--trunk-light),
+      var(--trunk-light) 8px,
+      var(--trunk-dark) 15px,
+      var(--trunk-dark) 9px);
+  border-radius: 90% 20% / 10% 30%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  transform: translateX(-50%);
+  transform: rotate(-7deg);
+
+  top: -390px;
+  left: 107px;
+
+  width: 30px;
+  height: 70px;
+
+  z-index: -2;
+}
+
+.palm-tree__sand {
+  position: relative;
+  background: var(--bg-color-island-steps);
+  border-radius: 50%;
+  box-shadow: 0 10px 50px 10px var(--island-shadow);
+  border: solid 10px var(--island-border);
+  width: 400px;
+  height: 100px;
+
+  top: -420px;
+  left: -60px;
+  z-index: -3;
+}
